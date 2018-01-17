@@ -1,3 +1,5 @@
+#coding:utf8
+
 """
 Django settings for TongmingServer project.
 
@@ -10,10 +12,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-import os
+import os,sys
+from django.contrib import admin
+
+admin.site.site_header = u'北京同明眼科专家'
+admin.site.site_title = u'北京同明眼科专家'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.join(BASE_DIR, 'apps/user'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +34,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,8 +43,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app1',
     'rest_framework',
+    'rest_framework.authtoken',
+    'django_filters',
+    'ckeditor'
+]
+
+INSTALLED_APPS += [
+    'apps.user',
+    'apps.workbench',
+    'apps.appointment',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +135,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'PAGE_SIZE': 8
+}
