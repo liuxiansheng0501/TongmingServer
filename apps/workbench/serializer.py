@@ -1,23 +1,158 @@
-# coding:utf-8
+# coding=UTF-8
 from rest_framework import serializers
-from .models import child_archives,newborns,forty_two_days,five_six_month,one_year_old,two_year_old,three_year_old,four_year_old,five_year_old,six_year_old
+from .model import *
 
 class child_archives_serializer(serializers.ModelSerializer):
     class Meta:
         model=child_archives
         fields=('__all__')
 
-class doctor_serializer(serializers.ModelSerializer):
+class child_archives_id_list_serializer(serializers.ModelSerializer):
     class Meta:
-        model=doctor
-        fields=('account', 'passwd', 'name', 'hospital', 'type', 'title')
+        model=child_archives
+        fields=(['child_id'])
 
-class hospital_serializer(serializers.ModelSerializer):
+class child_archives_unique_serializer(serializers.ModelSerializer):
     class Meta:
-        model = hospital
-        fields = ('name', 'hospital', 'account', 'passwd', 'type')
+        model=child_archives
+        fields=(['child_id','child_name','parent_id'])
 
-# class child_archives_serializer(serializers.ModelSerializer):
-#     class Meta:
-#         model=child_archives
-#         fields=('name', 'hospital', 'account', 'passwd', 'type')
+class child_archives_name_list_serializer(serializers.ModelSerializer):
+    class Meta:
+        model=child_archives
+        fields=(['child_id','child_name','parent_name'])
+
+class newborns_serializer(serializers.ModelSerializer):
+    class Meta:
+        model=newborns
+        fields = ('__all__')
+
+class forty_two_days_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = forty_two_days
+        fields = ('__all__')
+
+class five_six_month_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = five_six_month
+        fields = ('__all__')
+
+class one_year_old_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = one_year_old
+        fields = ('__all__')
+
+class two_year_old_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = two_year_old
+        fields = ('__all__')
+
+class three_year_old_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = three_year_old
+        fields = ('__all__')
+
+class four_year_old_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = four_year_old
+        fields = ('__all__')
+
+class five_year_old_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = five_year_old
+        fields = ('__all__')
+
+class six_year_old_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = six_year_old
+        fields = ('__all__')
+
+class query_newborns_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = newborns
+        fields = (['check_datetime','checked_child_name','checked_child_parent_name','result'])
+
+class query_forty_two_days_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = forty_two_days
+        fields = (['check_datetime','checked_child_name','checked_child_parent_name','result'])
+
+class query_five_six_month_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = five_six_month
+        fields = (['check_datetime','checked_child_name','checked_child_parent_name','result'])
+
+class query_one_year_old_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = one_year_old
+        fields = (['check_datetime','checked_child_name','checked_child_parent_name','result'])
+
+class query_two_year_old_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = two_year_old
+        fields = (['check_datetime','checked_child_name','checked_child_parent_name','result'])
+
+class query_three_year_old_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = three_year_old
+        fields = (['check_datetime','checked_child_name','checked_child_parent_name','result'])
+
+class query_four_year_old_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = four_year_old
+        fields = (['check_datetime','checked_child_name','checked_child_parent_name','result'])
+
+class query_five_year_old_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = five_year_old
+        fields = (['check_datetime','checked_child_name','checked_child_parent_name','result'])
+
+class query_six_year_old_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = six_year_old
+        fields = (['check_datetime','checked_child_name','checked_child_parent_name','result'])
+
+class query_newborns_serializer2(serializers.ModelSerializer):
+    class Meta:
+        model = newborns
+        fields = (['check_datetime','check_hospital_name','checked_child_name','check_doctor_name','checked_child_parent_name','result'])
+
+class query_forty_two_days_serializer2(serializers.ModelSerializer):
+    class Meta:
+        model = forty_two_days
+        fields = (['check_datetime','check_hospital_name','checked_child_name','check_doctor_name','checked_child_parent_name','result'])
+
+class query_five_six_month_serializer2(serializers.ModelSerializer):
+    class Meta:
+        model = five_six_month
+        fields = (['check_datetime','check_hospital_name','checked_child_name','check_doctor_name','checked_child_parent_name','result'])
+
+class query_one_year_old_serializer2(serializers.ModelSerializer):
+    class Meta:
+        model = one_year_old
+        fields = (['check_datetime','check_hospital_name','checked_child_name','check_doctor_name','checked_child_parent_name','result'])
+
+class query_two_year_old_serializer2(serializers.ModelSerializer):
+    class Meta:
+        model = two_year_old
+        fields = (['check_datetime','check_hospital_name','checked_child_name','check_doctor_name','checked_child_parent_name','result'])
+
+class query_three_year_old_serializer2(serializers.ModelSerializer):
+    class Meta:
+        model = three_year_old
+        fields = (['check_datetime','check_hospital_name','checked_child_name','check_doctor_name','checked_child_parent_name','result'])
+
+class query_four_year_old_serializer2(serializers.ModelSerializer):
+    class Meta:
+        model = four_year_old
+        fields = (['check_datetime','check_hospital_name','checked_child_name','check_doctor_name','checked_child_parent_name','result'])
+
+class query_five_year_old_serializer2(serializers.ModelSerializer):
+    class Meta:
+        model = five_year_old
+        fields = (['check_datetime','check_hospital_name','checked_child_name','check_doctor_name','checked_child_parent_name','result'])
+
+class query_six_year_old_serializer2(serializers.ModelSerializer):
+    class Meta:
+        model = six_year_old
+        fields = (['check_datetime','check_hospital_name','checked_child_name','check_doctor_name','checked_child_parent_name','result'])
