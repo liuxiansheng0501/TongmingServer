@@ -1,0 +1,10 @@
+[uwsgi]
+socket=123.207.165.225:8899
+http=123.207.165.225:8899
+chdir=/liu/TongmingServer/TongmingServer
+wsgi-file=/liu/TongmingServer/TongmingServer/TongmingServer
+processes=4
+threads=2
+master=True
+pidfile=uwsgi.pid
+daemonize=uswgi.log
